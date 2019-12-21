@@ -8,7 +8,6 @@ import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.net.*;
 import java.util.*;
 
@@ -16,8 +15,9 @@ import java.util.*;
 public class productController {
 
 
-    public static MultiValuedMap<String, Map<String, String>> fahrradlenker= null;
+    public static MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= null;
     public  static MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
+
 
     @SuppressWarnings("Duplicates")
     public static void lenkertyp() throws  IOException {
@@ -40,12 +40,13 @@ public class productController {
             String lenker =response.toString();
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
-            /*list.stream().forEach(x -> fahrradlenker.put(x,null));
+            for (int i=0; i<list.size();i++){
+                String s = list.get(i);
+                if (s.equalsIgnoreCase("flatbarlenker")){
+                    fahrradlenker.put("Flatbarlenker", flatbarlenker);
+                }
+            }
 
-            for (Map.Entry entry : fahrradlenker.entrySet())
-            {
-                System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
-            }*/
         } else {
             System.out.println("GET NOT WORKED");
         }
@@ -78,8 +79,6 @@ public class productController {
 
             }
 
-           // Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
-            //entries.forEach(x-> System.out.println(x));
         }
 
     }
@@ -111,8 +110,6 @@ public class productController {
 
             }
 
-           // Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
-            //entries.forEach(x-> System.out.println(x));
         }
 
     }
@@ -147,12 +144,15 @@ public class productController {
     }
 
     public static void main(String[] args) throws IOException {
-        //lenkertyp();
         schaltung();
         material();
         griff();
 
         Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
         entries.forEach(x-> System.out.println(x));
+
+        lenkertyp();
+        Collection<Map.Entry<String, MultiValuedMap<String, String>>> entries1 = fahrradlenker.entries();
+        entries1.forEach(x-> System.out.println(x));
     }
 }
