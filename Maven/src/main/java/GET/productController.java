@@ -2,11 +2,15 @@ package GET;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,8 +19,10 @@ import java.util.TreeMap;
 public class productController {
 
 
-    public Map<String, Map<String, String>> fahrradlenker= null;
+    public static MultiValuedMap<String, Map<String, String>> fahrradlenker= null;
+    public  static MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
 
+    @SuppressWarnings("Duplicates")
     public static void lenkertyp() throws  IOException {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -34,18 +40,53 @@ public class productController {
                 response.append(readLine);
             } in .close();
 
-
             String lenker =response.toString();
-
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
-            list.stream().forEach(x -> System.out.println(x));
+            /*list.stream().forEach(x -> fahrradlenker.put(x,null));
+
+            for (Map.Entry entry : fahrradlenker.entrySet())
+            {
+                System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+            }*/
         } else {
             System.out.println("GET NOT WORKED");
         }
     }
 
+    @SuppressWarnings("Duplicates")
+    public static  void  components() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
+        String readLine = null;
+        HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
+        conection.setRequestMethod("GET");
+        int responseCode = conection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(conection.getInputStream()));
+            StringBuffer response = new StringBuffer();
+            while ((readLine = in .readLine()) != null) {
+                response.append(readLine);
+            } in .close();
+
+            String lenker =response.toString();
+            List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
+
+            for (int i =0; i<list.size();i++){
+                String s ="Schaltung";
+                String s1 =list.get(i);
+                flatbarlenker.put(s,s1);
+
+            }
+
+        }
+
+    }
+
     public static void main(String[] args) throws IOException {
-        lenkertyp();
+        //lenkertyp();
+        components();
     }
 }
