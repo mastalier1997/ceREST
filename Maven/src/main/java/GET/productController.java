@@ -15,7 +15,7 @@ import java.util.*;
 public class productController {
 
 
-    public static MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= null;
+    public static MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
     public  static MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
 
 
@@ -42,7 +42,7 @@ public class productController {
 
             for (int i=0; i<list.size();i++){
                 String s = list.get(i);
-                if (s.equalsIgnoreCase("flatbarlenker")){
+                if (s.contains("Flatbarlenker")){
                     fahrradlenker.put("Flatbarlenker", flatbarlenker);
                 }
             }
