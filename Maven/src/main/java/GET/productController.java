@@ -1,20 +1,30 @@
 package GET;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 
 public class productController {
 
+
+    public Map<String, Map<String, String>> fahrradlenker= null;
+
     public static void lenkertyp() throws  IOException {
-        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/lenkertyp\n");
+        ObjectMapper mapper = new ObjectMapper();
+
+
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/lenkertyp");
         String readLine = null;
         HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
         conection.setRequestMethod("GET");
-        conection.setRequestProperty("userId", "a1bcdef"); // set userId its a sample here
         int responseCode = conection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
@@ -23,7 +33,13 @@ public class productController {
             while ((readLine = in .readLine()) != null) {
                 response.append(readLine);
             } in .close();
-            System.out.println(response.toString());
+
+
+            String lenker =response.toString();
+
+            List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
+
+            list.stream().forEach(x -> System.out.println(x));
         } else {
             System.out.println("GET NOT WORKED");
         }
