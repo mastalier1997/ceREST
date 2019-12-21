@@ -26,12 +26,12 @@ public class productController {
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/lenkertyp");
         String readLine = null;
-        HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-        conection.setRequestMethod("GET");
-        int responseCode = conection.getResponseCode();
+        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
+        connection.setRequestMethod("GET");
+        int responseCode = connection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
-                    new InputStreamReader(conection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             StringBuffer response = new StringBuffer();
             while ((readLine = in .readLine()) != null) {
                 response.append(readLine);
@@ -57,12 +57,12 @@ public class productController {
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
         String readLine = null;
-        HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-        conection.setRequestMethod("GET");
-        int responseCode = conection.getResponseCode();
+        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
+        connection.setRequestMethod("GET");
+        int responseCode = connection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
-                    new InputStreamReader(conection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             StringBuffer response = new StringBuffer();
             while ((readLine = in .readLine()) != null) {
                 response.append(readLine);
@@ -90,12 +90,12 @@ public class productController {
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/material?lenkertyp=Flatbarlenker");
         String readLine = null;
-        HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-        conection.setRequestMethod("GET");
-        int responseCode = conection.getResponseCode();
+        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
+        connection.setRequestMethod("GET");
+        int responseCode = connection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
-                    new InputStreamReader(conection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             StringBuffer response = new StringBuffer();
             while ((readLine = in .readLine()) != null) {
                 response.append(readLine);
@@ -121,14 +121,14 @@ public class productController {
     public static  void  griff() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material=carbon");
         String readLine = null;
-        HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-        conection.setRequestMethod("GET");
-        int responseCode = conection.getResponseCode();
+        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
+        connection.setRequestMethod("GET");
+        int responseCode = connection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
-                    new InputStreamReader(conection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             StringBuffer response = new StringBuffer();
             while ((readLine = in .readLine()) != null) {
                 response.append(readLine);
@@ -138,14 +138,10 @@ public class productController {
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
             for (int i =0; i<list.size();i++){
-                String s ="Schaltung";
+                String s ="Griff";
                 String s1 =list.get(i);
                 flatbarlenker.put(s,s1);
-
             }
-
-            Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
-            entries.forEach(x-> System.out.println(x));
         }
 
     }
@@ -154,6 +150,8 @@ public class productController {
         //lenkertyp();
         schaltung();
         material();
+        griff();
+
         Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
         entries.forEach(x-> System.out.println(x));
     }
