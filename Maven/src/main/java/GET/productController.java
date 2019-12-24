@@ -81,7 +81,14 @@ public class productController {
             for (int i =0; i<list.size();i++){
                 String s2 ="Schaltung";
                 String s1 =list.get(i);
-                flatbarlenker.put(s2,s1);
+                if (s.contains("Flatbarlenker")){
+                    flatbarlenker.put(s2,s1);
+                }else if(s.contains("Bullhornlenker")){
+                    bullhornlenker.put(s2,s1);
+                }else{
+                    rennradlenker.put(s2,s1);
+                }
+
 
             }
 
@@ -112,7 +119,13 @@ public class productController {
             for (int i =0; i<list.size();i++){
                 String s2 ="Material";
                 String s1 =list.get(i);
-                flatbarlenker.put(s2,s1);
+                if (s.contains("Flatbarlenker")){
+                    flatbarlenker.put(s2,s1);
+                }else if(s.contains("Bullhornlenker")){
+                    bullhornlenker.put(s2,s1);
+                }else{
+                    rennradlenker.put(s2,s1);
+                }
 
             }
 
@@ -143,7 +156,13 @@ public class productController {
             for (int i =0; i<list.size();i++){
                 String s2 ="Griff";
                 String s1 =list.get(i);
-                flatbarlenker.put(s2,s1);
+                if (s.contains("Flatbarlenker")){
+                    flatbarlenker.put(s2,s1);
+                }else if(s.contains("Bullhornlenker")){
+                    bullhornlenker.put(s2,s1);
+                }else{
+                    rennradlenker.put(s2,s1);
+                }
             }
         }
 
