@@ -17,6 +17,8 @@ public class productController {
 
     public MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
     public MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
+    public MultiValuedMap<String, String> rennradlenker= new ArrayListValuedHashMap<>();
+    public MultiValuedMap<String, String> bullhornlenker= new ArrayListValuedHashMap<>();
 
 
     @SuppressWarnings("Duplicates")
@@ -44,6 +46,10 @@ public class productController {
                 String s = list.get(i);
                 if (s.contains("Flatbarlenker")){
                     fahrradlenker.put("Flatbarlenker", flatbarlenker);
+                }else if (s.contains("Bullhornlenker")){
+                    fahrradlenker.put("Bullhornlenker", bullhornlenker);
+                }else{
+                    fahrradlenker.put("Rennradlenker", rennradlenker);
                 }
             }
 
