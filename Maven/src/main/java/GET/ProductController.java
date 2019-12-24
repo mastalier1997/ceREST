@@ -14,7 +14,7 @@ import java.util.*;
 
 public class ProductController {
 
-//test
+
     public MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
     public MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
     public MultiValuedMap<String, String> rennradlenker= new ArrayListValuedHashMap<>();

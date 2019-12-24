@@ -4,11 +4,9 @@ import java.util.List;
 
 public class UserData {
 
-    private List<User> blogs;
 
     public User createBlog(String vorname, String nachname) {
         User newBlog = new User(vorname, nachname);
-        blogs.add(newBlog);
         return newBlog;
     }
 
