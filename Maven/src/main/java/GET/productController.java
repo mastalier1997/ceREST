@@ -15,12 +15,12 @@ import java.util.*;
 public class productController {
 
 
-    public static MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
-    public  static MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
+    public MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
+    public MultiValuedMap<String, String> flatbarlenker= new ArrayListValuedHashMap<>();
 
 
     @SuppressWarnings("Duplicates")
-    public static void lenkertyp() throws  IOException {
+    public void lenkertyp() throws  IOException {
         ObjectMapper mapper = new ObjectMapper();
 
 
@@ -53,7 +53,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public static  void  schaltung() throws IOException {
+    public void  schaltung() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
@@ -84,7 +84,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public static  void  material() throws IOException {
+    public void  material() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/material?lenkertyp=Flatbarlenker");
@@ -115,7 +115,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public static  void  griff() throws IOException {
+    public void  griff() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material=carbon");
@@ -143,16 +143,4 @@ public class productController {
 
     }
 
-    public static void main(String[] args) throws IOException {
-        schaltung();
-        material();
-        griff();
-
-        Collection<Map.Entry<String, String>> entries = flatbarlenker.entries();
-        entries.forEach(x-> System.out.println(x));
-
-        lenkertyp();
-        Collection<Map.Entry<String, MultiValuedMap<String, String>>> entries1 = fahrradlenker.entries();
-        entries1.forEach(x-> System.out.println(x));
-    }
 }
