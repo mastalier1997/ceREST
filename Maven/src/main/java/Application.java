@@ -9,9 +9,9 @@ public class Application {
 
     public static void main(String[] args) throws IOException {
         productController productController = new productController();
-        productController.schaltung();
-        productController.material();
-        productController.griff();
+        productController.schaltung("Flatbarlenker");
+        productController.material("Flatbarlenker");
+        productController.griff("Carbon");
 
         Collection<Map.Entry<String, String>> entries = productController.flatbarlenker.entries();
         entries.forEach(x-> System.out.println(x));

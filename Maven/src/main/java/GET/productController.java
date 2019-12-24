@@ -137,7 +137,7 @@ public class productController {
     public void  griff(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material=carbon");
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material="+s);
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
         connection.setRequestMethod("GET");
@@ -156,13 +156,18 @@ public class productController {
             for (int i =0; i<list.size();i++){
                 String s2 ="Griff";
                 String s1 =list.get(i);
-                if (s.contains("Flatbarlenker")){
-                    flatbarlenker.put(s2,s1);
-                }else if(s.contains("Bullhornlenker")){
-                    bullhornlenker.put(s2,s1);
-                }else{
-                    rennradlenker.put(s2,s1);
+                if (s.contains("Carbon")){
+                    s2= "Griff - Carbon";
+                    Collection<String> fl= flatbarlenker.get("Material");
+                    if (fl.contains("Carbon")){
+                        flatbarlenker.put(s2,s1);
+                    }
+                } else if (s.contains("Stahl")){
+                    s2= "Griff - Stahl";
+                }else {
+                    s2= "Griff - Aluminium";
                 }
+
             }
         }
 
