@@ -56,7 +56,7 @@ public class productController {
     public void  schaltung(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp="+s);
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
         connection.setRequestMethod("GET");
