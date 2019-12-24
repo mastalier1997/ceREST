@@ -100,7 +100,7 @@ public class productController {
     public void  material(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/material?lenkertyp=Flatbarlenker");
+        URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/material?lenkertyp="+ s);
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
         connection.setRequestMethod("GET");
