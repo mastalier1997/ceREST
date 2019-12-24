@@ -1,4 +1,4 @@
-import GET.productController;
+import GET.ProductController;
 import org.apache.commons.collections4.MultiValuedMap;
 
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Map;
 public class Application {
 
     public static void main(String[] args) throws IOException {
-        productController productController = new productController();
+        ProductController productController = new ProductController();
         productController.schaltung("Flatbarlenker");
         productController.material("Flatbarlenker");
         productController.griff("Carbon", "Flatbarlenker");

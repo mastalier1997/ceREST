@@ -12,7 +12,7 @@ import java.net.*;
 import java.util.*;
 
 
-public class productController {
+public class ProductController {
 
 
     public MultiValuedMap<String, MultiValuedMap<String, String>> fahrradlenker= new ArrayListValuedHashMap<>();
@@ -211,3 +211,5 @@ public class productController {
     }
 
 }
+
+
