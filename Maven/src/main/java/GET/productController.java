@@ -162,10 +162,47 @@ public class productController {
                     if (fl.contains("Carbon")){
                         flatbarlenker.put(s2,s1);
                     }
+                    Collection<String> bl= bullhornlenker.get("Material");
+                    if (bl.contains("Carbon")){
+                        bullhornlenker.put(s2,s1);
+                    }
+
+                    Collection<String> rl= rennradlenker.get("Material");
+                    if (rl.contains("Carbon")){
+                        rennradlenker.put(s2,s1);
+                    }
+
                 } else if (s.contains("Stahl")){
                     s2= "Griff - Stahl";
+                    Collection<String> fl= flatbarlenker.get("Material");
+                    if (fl.contains("Stahl")){
+                        flatbarlenker.put(s2,s1);
+                    }
+                    Collection<String> bl= bullhornlenker.get("Material");
+                    if (bl.contains("Stahl")){
+                        bullhornlenker.put(s2,s1);
+                    }
+
+                    Collection<String> rl= rennradlenker.get("Material");
+                    if (rl.contains("Stahl")){
+                        rennradlenker.put(s2,s1);
+                    }
+
                 }else {
                     s2= "Griff - Aluminium";
+                    Collection<String> fl= flatbarlenker.get("Material");
+                    if (fl.contains("Aluminium")){
+                        flatbarlenker.put(s2,s1);
+                    }
+                    Collection<String> bl= bullhornlenker.get("Material");
+                    if (bl.contains("Aluminium")){
+                        bullhornlenker.put(s2,s1);
+                    }
+
+                    Collection<String> rl= rennradlenker.get("Material");
+                    if (rl.contains("Aluminium")){
+                        rennradlenker.put(s2,s1);
+                    }
                 }
 
             }

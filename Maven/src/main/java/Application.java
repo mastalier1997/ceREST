@@ -12,9 +12,17 @@ public class Application {
         productController.schaltung("Flatbarlenker");
         productController.material("Flatbarlenker");
         productController.griff("Carbon");
+        productController.griff("Aluminium");
 
-        Collection<Map.Entry<String, String>> entries = productController.flatbarlenker.entries();
-        entries.forEach(x-> System.out.println(x));
+        productController.schaltung("Bullhornlenker");
+        productController.material("Bullhornlenker");
+        productController.griff("Stahl");
+        productController.griff("Aluminium");
+
+        productController.schaltung("Rennradlenker");
+        productController.material("Rennradlenker");
+        productController.griff("Carbon");
+        productController.griff("Aluminium");
 
         productController.lenkertyp();
         Collection<Map.Entry<String, MultiValuedMap<String, String>>> entries1 = productController.fahrradlenker.entries();
