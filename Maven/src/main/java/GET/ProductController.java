@@ -174,19 +174,12 @@ public class ProductController {
 
                 } else if (s.contains("Stahl")){
                     s2= "Griff - Stahl";
-                    Collection<String> fl= flatbarlenker.get("Material");
-                    if (fl.contains("Stahl") && c=="Flatbarlenker"){
-                        flatbarlenker.put(s2,s1);
-                    }
+
                     Collection<String> bl= bullhornlenker.get("Material");
-                    if (bl.contains("Stahl") && c=="Bullhornlenker"){
+                    if (bl.contains("Stahl")){
                         bullhornlenker.put(s2,s1);
                     }
 
-                    Collection<String> rl= rennradlenker.get("Material");
-                    if (rl.contains("Stahl") && c=="Rennradlenker"){
-                        rennradlenker.put(s2,s1);
-                    }
 
                 }else {
                     s2= "Griff - Aluminium";
