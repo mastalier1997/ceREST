@@ -134,7 +134,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public void  griff(String s) throws IOException {
+    public void  griff(String s, String c) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material="+s);
@@ -159,48 +159,48 @@ public class productController {
                 if (s.contains("Carbon")){
                     s2= "Griff - Carbon";
                     Collection<String> fl= flatbarlenker.get("Material");
-                    if (fl.contains("Carbon")){
+                    if (fl.contains("Carbon")&& c=="Flatbarlenker"){
                         flatbarlenker.put(s2,s1);
                     }
                     Collection<String> bl= bullhornlenker.get("Material");
-                    if (bl.contains("Carbon")){
+                    if (bl.contains("Carbon") && c=="Bullhornlenker"){
                         bullhornlenker.put(s2,s1);
                     }
 
                     Collection<String> rl= rennradlenker.get("Material");
-                    if (rl.contains("Carbon")){
+                    if (rl.contains("Carbon") && c=="Rennradlenker"){
                         rennradlenker.put(s2,s1);
                     }
 
                 } else if (s.contains("Stahl")){
                     s2= "Griff - Stahl";
                     Collection<String> fl= flatbarlenker.get("Material");
-                    if (fl.contains("Stahl")){
+                    if (fl.contains("Stahl") && c=="Flatbarlenker"){
                         flatbarlenker.put(s2,s1);
                     }
                     Collection<String> bl= bullhornlenker.get("Material");
-                    if (bl.contains("Stahl")){
+                    if (bl.contains("Stahl") && c=="Bullhornlenker"){
                         bullhornlenker.put(s2,s1);
                     }
 
                     Collection<String> rl= rennradlenker.get("Material");
-                    if (rl.contains("Stahl")){
+                    if (rl.contains("Stahl") && c=="Rennradlenker"){
                         rennradlenker.put(s2,s1);
                     }
 
                 }else {
                     s2= "Griff - Aluminium";
                     Collection<String> fl= flatbarlenker.get("Material");
-                    if (fl.contains("Aluminium")){
+                    if (fl.contains("Aluminium") && c=="Flatbarlenker"){
                         flatbarlenker.put(s2,s1);
                     }
                     Collection<String> bl= bullhornlenker.get("Material");
-                    if (bl.contains("Aluminium")){
+                    if (bl.contains("Aluminium") && c=="Bullhornlenker"){
                         bullhornlenker.put(s2,s1);
                     }
 
                     Collection<String> rl= rennradlenker.get("Material");
-                    if (rl.contains("Aluminium")){
+                    if (rl.contains("Aluminium") && c=="Rennradlenker"){
                         rennradlenker.put(s2,s1);
                     }
                 }
