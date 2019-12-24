@@ -53,7 +53,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public void  schaltung() throws IOException {
+    public void  schaltung(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/schaltung?lenkertyp=Flatbarlenker");
@@ -73,9 +73,9 @@ public class productController {
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
             for (int i =0; i<list.size();i++){
-                String s ="Schaltung";
+                String s2 ="Schaltung";
                 String s1 =list.get(i);
-                flatbarlenker.put(s,s1);
+                flatbarlenker.put(s2,s1);
 
             }
 
@@ -84,7 +84,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public void  material() throws IOException {
+    public void  material(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/material?lenkertyp=Flatbarlenker");
@@ -104,9 +104,9 @@ public class productController {
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
             for (int i =0; i<list.size();i++){
-                String s ="Material";
+                String s2 ="Material";
                 String s1 =list.get(i);
-                flatbarlenker.put(s,s1);
+                flatbarlenker.put(s2,s1);
 
             }
 
@@ -115,7 +115,7 @@ public class productController {
     }
 
     @SuppressWarnings("Duplicates")
-    public void  griff() throws IOException {
+    public void  griff(String s) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         URL urlForGetRequest = new URL("https://www.maripavi.at/produkt/griff?material=carbon");
@@ -135,9 +135,9 @@ public class productController {
             List<String> list = mapper.readValue(lenker, new TypeReference<List<String >>() {});
 
             for (int i =0; i<list.size();i++){
-                String s ="Griff";
+                String s2 ="Griff";
                 String s1 =list.get(i);
-                flatbarlenker.put(s,s1);
+                flatbarlenker.put(s2,s1);
             }
         }
 
