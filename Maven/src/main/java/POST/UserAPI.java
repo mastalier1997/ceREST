@@ -12,6 +12,8 @@ public class UserAPI {
 
     @PostMapping(value = "/createUser", consumes = "application/json", produces = "application/json")
     public User createUser(@RequestBody User user) {
+        //System.out.println( "User hinzugefügt");
         return userData.createBlog(user.getVorname(), user.getNachname());
+
     }
 }
