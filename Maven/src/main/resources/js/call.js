@@ -1,4 +1,4 @@
 function f() {
-    var lenkertyps = Packages.java.GET.ProductController.lenkertyp();
+    var lenkertyps = java.GET.ProductController.lenkertyp();
 
 }
